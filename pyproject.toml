@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xianyu-dify-customer-service"
+version = "0.1.0"
+description = "基于 Playwright、FastAPI 与 Dify 的闲鱼智能客服工具"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "playwright>=1.62,<2",
+  "python-dotenv>=1.0,<2",
+  "requests>=2.32,<3",
+  "uvicorn[standard]>=0.30,<1",
+]
+
+[project.scripts]
+xianyu-customer-service = "xianyu_customer_service.bot:main"
+xianyu-dify-api = "xianyu_customer_service.api:run"
+
+[tool.setuptools.packages.find]
+include = ["xianyu_customer_service*"]
